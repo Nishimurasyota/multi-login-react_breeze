@@ -30,5 +30,10 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-// Admin用のルーティングを読み込む
-require __DIR__.'/admin.php';
+/**Admin用のルーティングを読み込む
+ * 認証の重複を避けるためにadminの場合は/adminを追加する,nameも区別するためにadminを追加する
+ */
+
+Route::prefix("admin")->name('admin.')->group(function(){
+    require __DIR__.'/admin.php';
+});
