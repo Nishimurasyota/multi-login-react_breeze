@@ -29,3 +29,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+// Admin用のルーティングを読み込む
+require __DIR__.'/admin.php';
